@@ -13,12 +13,15 @@ import br.com.pucminas.architeture.api.models.Author;
 @Service
 public class AuthorRepository implements IAuthorRepository {
 
-	private List<Author> models;
+	private static List<Author> models = new ArrayList<Author>();
 
-	public AuthorRepository() {
-		models = new ArrayList<Author>();
+	static {
 		models.add(new Author(1, "Giovani"));
 		models.add(new Author(2, "Felipe"));
+	}
+
+	public AuthorRepository() {
+
 	}
 
 	@Override

@@ -1,6 +1,5 @@
 package br.com.pucminas.architeture.api.models;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +8,17 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class Book extends ModelBase {
 	private String name;
 	private int year;
+	private double price;
 	@JsonIgnore
 	private List<Integer> authors;
 	@JsonIgnore
 	private List<Integer> reviews;
 
-	public Book(int id, String name, int year) {
+	public Book(int id, String name, int year, double price) {
 		super(id);
 		this.name = name;
 		this.year = year;
+		this.price = price;
 	}
 
 	public Book() {
@@ -40,6 +41,14 @@ public class Book extends ModelBase {
 		this.year = year;
 	}
 
+	public double getPrice() {
+		return price;
+	}
+
+	public void setPrice(double price) {
+		this.price = price;
+	}
+
 	public List<Integer> getAuthors() {
 		return authors;
 	}
@@ -56,10 +65,10 @@ public class Book extends ModelBase {
 		this.reviews = reviews;
 	}
 
-	public void addAuthor(Author author) {
+	public void addAuthor(int id) {
 		if (authors == null)
 			authors = new ArrayList<Integer>();
-		authors.add(author.getId());
+		authors.add(id);
 	}
 
 	public void addReview(Review review) {

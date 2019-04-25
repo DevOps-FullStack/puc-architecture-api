@@ -52,4 +52,10 @@ public class AuthorService implements IAuthorService {
 		return repository.findByName(name);
 	}
 
+	@Override
+	public List<Author> findAllByIdOrName(List<Integer> id, String name) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

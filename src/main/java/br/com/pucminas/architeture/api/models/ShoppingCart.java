@@ -1,6 +1,5 @@
 package br.com.pucminas.architeture.api.models;
 
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,15 +8,19 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 public class ShoppingCart extends ModelBase {
 	@JsonIgnore
 	private List<Integer> books;
-	private Order orders;
+	private Order order;
 
-	public ShoppingCart(int id, LocalDateTime createdAt, LocalDateTime updatedAt, Order orders) {
+	public ShoppingCart(int id, Order order) {
 		super(id);
-		this.orders = orders;
+		this.order = order;
 	}
 
 	public ShoppingCart() {
 		// TODO Auto-generated constructor stub
+	}
+
+	public ShoppingCart(int id) {
+		super(id);
 	}
 
 	public List<Integer> getBooks() {
@@ -28,12 +31,12 @@ public class ShoppingCart extends ModelBase {
 		this.books = books;
 	}
 
-	public Order getOrders() {
-		return orders;
+	public Order getOrder() {
+		return order;
 	}
 
-	public void setOrders(Order orders) {
-		this.orders = orders;
+	public void setOrder(Order order) {
+		this.order = order;
 	}
 
 	public void addBook(Book book) {
